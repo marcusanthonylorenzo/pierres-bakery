@@ -14,7 +14,7 @@ namespace Bakery.Tests
     [TestMethod]
     public void Welcome_TakesObjectsAsArguementsAndDisplaysTheirProperties_StringAndInt()
     {
-      Bread loaf = new Bread();
+      MenuItems.Bread loaf = new MenuItems.Bread();
       loaf.name = "Rye";
       loaf.price = 5;
       Console.WriteLine($"1. {loaf.name} loaves at ${loaf.price} per loaf.");
@@ -26,7 +26,7 @@ namespace Bakery.Tests
     public void Buy_TakesInputAndChecksIfItemExistsAsKeyInFullMenuThenProceeds_StringAndInt()
     {
         Dictionary<string, int> fullMenu = new Dictionary<string, int>();
-        Bread loaf = new Bread();
+        MenuItems.Bread loaf = new MenuItems.Bread();
         loaf.name = "Rye";
         loaf.price = 5;
         fullMenu.Add(loaf.name, loaf.price);
@@ -43,7 +43,7 @@ namespace Bakery.Tests
     public void calcTotalCost_TakesInputAndSearchesFullMenuDictionaryKeysViaStringThenTakesValueAndMultipliesItByQty_Int()
     {      
         Dictionary<string, int> fullMenu = new Dictionary<string, int>();
-        Bread loaf = new Bread();
+        MenuItems.Bread loaf = new MenuItems.Bread();
         loaf.name = "Rye";
         loaf.price = 5;
         fullMenu.Add(loaf.name, loaf.price);
@@ -59,7 +59,7 @@ namespace Bakery.Tests
     public void BreadDotDeal_CalculatesNumberOfLoavesByThirdsRoundedDownReturnsDiscountedQuantity_Int()
     {
         Dictionary<string, int> fullMenu = new Dictionary<string, int>();
-        Bread loaf = new Bread();
+        MenuItems.Bread loaf = new MenuItems.Bread();
         loaf.name = "Rye";
         loaf.price = 5;
         fullMenu.Add(loaf.name, loaf.price);
@@ -80,7 +80,7 @@ namespace Bakery.Tests
     public void PastryDotDeal_CalculatesNumberOfPastriesByThreesRoundedDownForDiscountCalc_Int()
     {
         Dictionary<string, int> fullMenu = new Dictionary<string, int>();
-        Pastry danish = new Pastry();
+        MenuItems.Pastry danish = new MenuItems.Pastry();
         danish.name = "Danish";
         danish.price = 2;
         fullMenu.Add(danish.name, danish.price);

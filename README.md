@@ -9,7 +9,7 @@
 
 **My individual first console app in C#; asks the user to enter what type of bread they would like and the quantity, automatically applies discount and shows shopping cart totals.**
 
-The concept was to instantiate objects (MenuItems) and then to organize them into a Dictionary, where access via string (Key/Value) is quick albeit limited. I realize I could likely DRY the some of the methods, however I am finding the syntax difficult to abstract certain arguements needed for the methods to run.
+The concept was to instantiate objects (MenuItems) and then to organize them into a Dictionary, where access via string (Key/Value) is quick albeit limited. I realize I could likely DRY the some of the methods, however I am finding the syntax difficult to abstract certain arguements needed for the methods to run. Also, I created a class wrapping my Bread and Pastry classes, attempting to create a higher level method for both to use, but it failed. I could do away with the MenuItems class I believe.
 
 
 ##### Technologies Used:

@@ -81,7 +81,7 @@ namespace MainBakery
                 }
             } else {
                 Console.WriteLine(" ");
-                Console.WriteLine("Please enter a proper menu item, this item does not exist!");
+                Console.WriteLine("Please enter a proper menu item, this item does not exist! R U Craze?");
                 Console.WriteLine(" ");
                 Buy();
                 return;
