@@ -7,7 +7,8 @@ namespace MainBakery
 {
     public class Shop
     {
-        public static Dictionary<string, int> fullMenu = new Dictionary<string, int>();
+        private static Dictionary<string, int> fullMenu = new Dictionary<string, int>();
+        private static int totalCost = 0;
         public static void Main()
         {
             //Menu offering as if a real shop, used get/set because irl prices can change by the hour:
@@ -16,7 +17,7 @@ namespace MainBakery
             rye.price = 5;
             fullMenu.Add(rye.name, rye.price);
             Pastry croissant = new Pastry();
-            croissant.name = "Almond Croissant";
+            croissant.name = "Croissant";
             croissant.price = 5;
             fullMenu.Add(croissant.name, croissant.price);
 
@@ -26,19 +27,6 @@ namespace MainBakery
             Shop.Buy();
 
         }
-
-        //Method is intended to pass two seperate objects, therefore "object" is declared since it is two seperate classes.
-        // public static int DealOffer(object item)
-        // {
-        //     if (item == loaf)
-        //     {
-
-        //     } else if (item == pastry)
-        //     {
-
-        //     }
-        // }
-
         private static void Welcome(Bread menu1, Pastry menu2)
         {
             Console.WriteLine(" ");
@@ -57,15 +45,40 @@ namespace MainBakery
         {
             Console.WriteLine("Please enter the name of the item you would like:");
             string inputName = Console.ReadLine();
-            if (!fullMenu.ContainsKey(inputName))
+            char[] letters = inputName.ToCharArray();
+            letters[0] = char.ToUpper(letters[0]);
+            inputName = new string(letters);
+            Console.WriteLine(inputName);
+            if (fullMenu.Keys.Contains(inputName))
             {
+                //Needing to handle string input for quantity bug.
+                Console.WriteLine("Please enter the amount you would like: ");
+                int quantity = Int32.Parse(Console.ReadLine());
+                if (quantity.GetType() == typeof(int))
+                {
+                    Console.WriteLine($"You've entered {inputName} at {quantity} units total.");
+                    int aggregateCost = calcTotalCost(inputName, quantity);
+                    Console.WriteLine(Shop.totalCost);
+                    Shop.totalCost += aggregateCost;
+                    Console.WriteLine($"Your Shopping Cart Total is: ${Shop.totalCost}");
+                    return; 
+                } else if (quantity.GetType() != typeof(int))
+                {
+                    Console.WriteLine("Please enter a number only! Thank you.");
+                }
+
+            } else {
                 Console.WriteLine("Please enter a proper menu item, this item does not exist!");
                 Buy();
+                return;
             }
-            Console.WriteLine("Please enter the amount you would like: ");
-            int quantity = Int32.Parse(Console.ReadLine());
- 
-            Console.WriteLine($"You've entered {inputName} at {quantity} units total.");
         }
+
+        private static int calcTotalCost(string itemName, int qty)
+        {
+            int result = fullMenu[itemName]*qty;
+            return result;
+        }
+
     }
 }

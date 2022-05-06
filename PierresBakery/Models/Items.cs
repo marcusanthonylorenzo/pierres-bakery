@@ -8,7 +8,6 @@ namespace Items
     {
         public string name { get; set; }
         public int price { get; set; }
-
     }
 
     public class Pastry
