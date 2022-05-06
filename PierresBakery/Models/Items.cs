@@ -12,15 +12,14 @@ namespace Items
             public int price { get; set; }
             public int discountRate { get; set; }
             public int quantity { get; set; }    
-            public static int Deal(int qty)
+            public static int Deal(int qtyBread)
             {
-                double calc = qty/3;
-                int dealCalc = (int)calc;
-                int discount = dealCalc*5;
-                Console.WriteLine($"Total {qty}, amount of thirds {dealCalc}, and total discount: ${discount}.");
-                return Shop.totalDiscounts = discount;
+                double calcBread = qtyBread/3;
+                int dealCalcBread = (int)calcBread;
+                int discountBread = dealCalcBread*5;
+                Console.WriteLine($"Total units ordered: {qtyBread}, amount of thirds {dealCalcBread}, and total discount: ${discountBread}.");
+                return Shop.totalDiscounts = discountBread;
             }
-
         }
 
         public class Pastry
@@ -29,13 +28,13 @@ namespace Items
             public int price { get; set; }
             public int discountRate { get; set; }
             public int quantity { get; set; }           
-            public static int Deal(int qty)
+            public static int Deal(int qtyPastry)
             {
-                double calc = qty/3;
-                int dealCalc = (int)calc;
-                int discount = dealCalc*1;
-                Console.WriteLine($"Total {qty}, amount of thirds {dealCalc}, and total discount: ${discount}.");
-                return Shop.totalDiscounts = discount;
+                double calcPastry = qtyPastry/3;
+                int dealCalcPastry = (int)calcPastry;
+                int discountPastry = dealCalcPastry*1;
+                Console.WriteLine($"Total units ordered: {qtyPastry}, amount of thirds {dealCalcPastry}, and total discount: ${discountPastry}.");
+                return Shop.totalDiscounts = discountPastry;
             }
 
         }

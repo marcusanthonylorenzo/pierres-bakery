@@ -16,12 +16,10 @@ namespace MainBakery
             MenuItems.Bread rye = new MenuItems.Bread();
             rye.name = "Rye";
             rye.price = 5;
-            rye.discountRate = 5;
             fullMenu.Add(rye.name, rye.price);
             MenuItems.Pastry croissant = new MenuItems.Pastry();
             croissant.name = "Croissant";
             croissant.price = 2;
-            croissant.discountRate = 1;
             fullMenu.Add(croissant.name, croissant.price);
             //Welcome!
             Shop.Welcome(rye, croissant);
@@ -43,7 +41,7 @@ namespace MainBakery
         
         public static void Buy()
         {
-            Console.WriteLine("Please enter the name of the item you would like:");
+            Console.WriteLine("Please enter the name of the item you would like: (Rye or Croissant)");
             string inputName = Console.ReadLine();
             char[] letters = inputName.ToCharArray();
             letters[0] = char.ToUpper(letters[0]);
@@ -52,14 +50,14 @@ namespace MainBakery
             if (fullMenu.Keys.Contains(inputName))
             {
                 //Needing to handle string input for quantity bug.
-                Console.WriteLine("Please enter the amount you would like: ");
+                Console.WriteLine("Please enter the amount of units you would like to order: ");
                 int quantity = Int32.Parse(Console.ReadLine());
                 if (quantity.GetType() == typeof(int))
                 {
                     Console.WriteLine(" ");
                     Console.WriteLine("**************************************************************");
                     Console.WriteLine(" ");
-                    Console.WriteLine($"You've entered {inputName} at {quantity} units total.");
+                    Console.WriteLine($"You've requested {inputName} at {quantity} units total.");
                     int aggregateCost = calcTotalCost(inputName, quantity);
                     Console.WriteLine($"Previous Shopping Cart Total: ${Shop.totalCost}");
                     Shop.totalCost += aggregateCost;
@@ -69,12 +67,14 @@ namespace MainBakery
                     Console.WriteLine("**************************************************************");
                     Console.WriteLine(" ");
                     Buy();
-                } else if (quantity.GetType() != typeof(int))
+                } else if (quantity.GetType() == typeof(string))
                 {
                     Console.WriteLine("Please enter a number only! Thank you.");
                 }
             } else {
+                Console.WriteLine(" ");
                 Console.WriteLine("Please enter a proper menu item, this item does not exist!");
+                Console.WriteLine(" ");
                 Buy();
                 return;
             }
@@ -91,8 +91,9 @@ namespace MainBakery
             {
                 MenuItems.Pastry.Deal(qty);
             }
+            Console.WriteLine($"Total Cost for this order: ${result}.");
+            Console.WriteLine(" ");
             return result;
         }
-
     }
 }
