@@ -2058,14 +2058,14 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
-      "ProjectName/1.0.0": {
+      "Bakery/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
-          "bin/placeholder/ProjectName.dll": {}
+          "bin/placeholder/Bakery.dll": {}
         },
         "runtime": {
-          "bin/placeholder/ProjectName.dll": {}
+          "bin/placeholder/Bakery.dll": {}
         }
       }
     }
@@ -6899,18 +6899,18 @@
         "system.xml.xpath.xmldocument.nuspec"
       ]
     },
-    "ProjectName/1.0.0": {
+    "Bakery/1.0.0": {
       "type": "project",
-      "path": "../ProjectName/ProjectName.csproj",
-      "msbuildProject": "../ProjectName/ProjectName.csproj"
+      "path": "../PierresBakery/Bakery.csproj",
+      "msbuildProject": "../PierresBakery/Bakery.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Bakery >= 1.0.0",
       "MSTest.TestAdapter >= 1.3.2",
       "MSTest.TestFramework >= 1.3.2",
-      "Microsoft.NET.Test.Sdk >= 15.9.0",
-      "ProjectName >= 1.0.0"
+      "Microsoft.NET.Test.Sdk >= 15.9.0"
     ]
   },
   "packageFolders": {
@@ -6920,11 +6920,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marcus\\desktop\\c#\\ProjectName.Solution\\ProjectName.Test\\ProjectName.Tests.csproj",
-      "projectName": "ProjectName.Tests",
-      "projectPath": "C:\\Users\\Marcus\\desktop\\c#\\ProjectName.Solution\\ProjectName.Test\\ProjectName.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\Marcus\\Desktop\\C#\\PierresBakery.Solution\\PierresBakery.Tests\\Bakery.Tests.csproj",
+      "projectName": "Bakery.Tests",
+      "projectPath": "C:\\Users\\Marcus\\Desktop\\C#\\PierresBakery.Solution\\PierresBakery.Tests\\Bakery.Tests.csproj",
       "packagesPath": "C:\\Users\\Marcus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marcus\\desktop\\c#\\ProjectName.Solution\\ProjectName.Test\\obj\\",
+      "outputPath": "C:\\Users\\Marcus\\Desktop\\C#\\PierresBakery.Solution\\PierresBakery.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6945,8 +6945,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Marcus\\desktop\\c#\\ProjectName.Solution\\ProjectName\\ProjectName.csproj": {
-              "projectPath": "C:\\Users\\Marcus\\desktop\\c#\\ProjectName.Solution\\ProjectName\\ProjectName.csproj"
+            "C:\\Users\\Marcus\\Desktop\\C#\\PierresBakery.Solution\\PierresBakery\\Bakery.csproj": {
+              "projectPath": "C:\\Users\\Marcus\\Desktop\\C#\\PierresBakery.Solution\\PierresBakery\\Bakery.csproj"
             }
           }
         }

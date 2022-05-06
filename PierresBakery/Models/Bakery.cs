@@ -9,12 +9,14 @@ namespace MainBakery
     {
         public static void Main()
         {
-            //Console intro and menu offering if a real shop:
+            //Menu offering as if a real shop, used get/set because irl prices can change by the hour:
             Bread loaf = new Bread();
             loaf.name = "Rye";
+            loaf.price = 5;
             Pastry croissant = new Pastry();
             croissant.name = "Almond Croissant";
-
+            croissant.price = 5;
+            //Welcome!
             Shop.Welcome(loaf, croissant);
 
         }
@@ -35,7 +37,7 @@ namespace MainBakery
         {
             Console.WriteLine(" ");
             Console.WriteLine(" ");
-            Console.WriteLine("*******************    MENU Du JOUR    ***********************");
+            Console.WriteLine("*******************    MENU DU JOUR    ***********************");
             Console.WriteLine("Hi and welcome to Pierre's Patisserie *French accent oh la la*");
             Console.WriteLine("**************************************************************");
             Console.WriteLine(" ");
