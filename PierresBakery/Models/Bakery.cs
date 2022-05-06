@@ -33,9 +33,17 @@ namespace MainBakery
             Console.WriteLine("Hi and welcome to Pierre's Patisserie *French accent oh la la*");
             Console.WriteLine("**************************************************************");
             Console.WriteLine(" ");
-            Console.WriteLine("Here's what we have to offer: ");
+            Console.WriteLine("Baked Fresh Daily! C'est pas authentique mais quasi la meme!");
+            Console.WriteLine("Now hiring, contact Marcus at 04 5555 6789 to apply!");
+            Console.WriteLine(" ");
+            Console.WriteLine("Here's what's on offer: ");
+            Console.WriteLine("");
             Console.WriteLine($"1. {menu1.name} loaves at ${menu1.price} per loaf.");
+            Console.WriteLine("Buy 2, get one FREE! Must be congruent in each order. Deal will reset for new or late orders.");
+            Console.WriteLine(" ");
             Console.WriteLine($"2. {menu2.name}s at ${menu2.price} per pastry.");
+            Console.WriteLine("$2 each, or $5 for 3! Must also be congruent to maximize deal per order.");
+            Console.WriteLine("**************************************************************");
             Console.WriteLine(" ");
         }
         
@@ -58,7 +66,7 @@ namespace MainBakery
                     Console.WriteLine("**************************************************************");
                     Console.WriteLine(" ");
                     Console.WriteLine($"You've requested {inputName} at {quantity} units total.");
-                    int aggregateCost = calcTotalCost(inputName, quantity);
+                    int aggregateCost = CalcTotalCost(inputName, quantity);
                     Console.WriteLine($"Previous Shopping Cart Total: ${Shop.totalCost}");
                     Shop.totalCost += aggregateCost;
                     Shop.totalCost -= Shop.totalDiscounts;
@@ -79,8 +87,7 @@ namespace MainBakery
                 return;
             }
         }
-
-        private static int calcTotalCost(string itemName, int qty)
+        private static int CalcTotalCost(string itemName, int qty)
         {
             int result = fullMenu[itemName]*qty;
             if (itemName == "Rye")
@@ -91,7 +98,7 @@ namespace MainBakery
             {
                 MenuItems.Pastry.Deal(qty);
             }
-            Console.WriteLine($"Total Cost for this order: ${result}.");
+            Console.WriteLine($"Total Cost for this order pre-discount: ${result}.");
             Console.WriteLine(" ");
             return result;
         }

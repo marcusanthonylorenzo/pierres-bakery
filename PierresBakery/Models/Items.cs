@@ -10,7 +10,6 @@ namespace Items
         {
             public string name { get; set; }
             public int price { get; set; }
-            public int discountRate { get; set; }
             public int quantity { get; set; }    
             public static int Deal(int qtyBread)
             {
@@ -26,7 +25,6 @@ namespace Items
         {
             public string name { get; set; }
             public int price { get; set; }
-            public int discountRate { get; set; }
             public int quantity { get; set; }           
             public static int Deal(int qtyPastry)
             {
