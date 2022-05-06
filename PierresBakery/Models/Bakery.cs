@@ -13,19 +13,21 @@ namespace MainBakery
         public static void Main()
         {
             //Menu offering as if a real shop, used get/set because irl prices can change by the hour:
-            Bread rye = new Bread();
+            MenuItems.Bread rye = new MenuItems.Bread();
             rye.name = "Rye";
             rye.price = 5;
+            rye.discountRate = 5;
             fullMenu.Add(rye.name, rye.price);
-            Pastry croissant = new Pastry();
+            MenuItems.Pastry croissant = new MenuItems.Pastry();
             croissant.name = "Croissant";
             croissant.price = 2;
+            croissant.discountRate = 1;
             fullMenu.Add(croissant.name, croissant.price);
             //Welcome!
             Shop.Welcome(rye, croissant);
             Shop.Buy();
         }
-        private static void Welcome(Bread menu1, Pastry menu2)
+        private static void Welcome(MenuItems.Bread menu1, MenuItems.Pastry menu2)
         {
             Console.WriteLine(" ");
             Console.WriteLine(" ");
@@ -81,7 +83,14 @@ namespace MainBakery
         private static int calcTotalCost(string itemName, int qty)
         {
             int result = fullMenu[itemName]*qty;
-            Bread.BreadDeal(qty);
+            if (itemName == "Rye")
+            {
+                MenuItems.Bread.Deal(qty);
+            }
+            else if (itemName == "Croissant")
+            {
+                MenuItems.Pastry.Deal(qty);
+            }
             return result;
         }
 
