@@ -8,7 +8,8 @@ namespace MainBakery
     public class Shop
     {
         private static Dictionary<string, int> fullMenu = new Dictionary<string, int>();
-        private static int totalCost = 0;
+        public static int totalCost = 0;
+        public static int totalDiscounts = 0;
         public static void Main()
         {
             //Menu offering as if a real shop, used get/set because irl prices can change by the hour:
@@ -22,7 +23,6 @@ namespace MainBakery
             fullMenu.Add(croissant.name, croissant.price);
 
             //Welcome!
-            Console.WriteLine(fullMenu.Keys);
             Shop.Welcome(rye, croissant);
             Shop.Buy();
 
@@ -48,7 +48,7 @@ namespace MainBakery
             char[] letters = inputName.ToCharArray();
             letters[0] = char.ToUpper(letters[0]);
             inputName = new string(letters);
-            Console.WriteLine(inputName);
+            Console.WriteLine($"You entered: {inputName}");
             if (fullMenu.Keys.Contains(inputName))
             {
                 //Needing to handle string input for quantity bug.
@@ -56,12 +56,19 @@ namespace MainBakery
                 int quantity = Int32.Parse(Console.ReadLine());
                 if (quantity.GetType() == typeof(int))
                 {
+                    Console.WriteLine(" ");
+                    Console.WriteLine("**************************************************************");
+                    Console.WriteLine(" ");
                     Console.WriteLine($"You've entered {inputName} at {quantity} units total.");
                     int aggregateCost = calcTotalCost(inputName, quantity);
-                    Console.WriteLine(Shop.totalCost);
+                    Console.WriteLine($"Previous Shopping Cart Total: ${Shop.totalCost}");
                     Shop.totalCost += aggregateCost;
-                    Console.WriteLine($"Your Shopping Cart Total is: ${Shop.totalCost}");
-                    return; 
+                    Shop.totalCost -= Shop.totalDiscounts;
+                    Console.WriteLine($"Your Current Shopping Cart Total is: ${Shop.totalCost}");
+                    Console.WriteLine(" ");
+                    Console.WriteLine("**************************************************************");
+                    Console.WriteLine(" ");
+                    Buy();
                 } else if (quantity.GetType() != typeof(int))
                 {
                     Console.WriteLine("Please enter a number only! Thank you.");
@@ -77,6 +84,7 @@ namespace MainBakery
         private static int calcTotalCost(string itemName, int qty)
         {
             int result = fullMenu[itemName]*qty;
+            Bread.BreadDeal(qty);
             return result;
         }
 
