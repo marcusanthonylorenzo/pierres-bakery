@@ -19,13 +19,11 @@ namespace MainBakery
             fullMenu.Add(rye.name, rye.price);
             Pastry croissant = new Pastry();
             croissant.name = "Croissant";
-            croissant.price = 5;
+            croissant.price = 2;
             fullMenu.Add(croissant.name, croissant.price);
-
             //Welcome!
             Shop.Welcome(rye, croissant);
             Shop.Buy();
-
         }
         private static void Welcome(Bread menu1, Pastry menu2)
         {
@@ -73,7 +71,6 @@ namespace MainBakery
                 {
                     Console.WriteLine("Please enter a number only! Thank you.");
                 }
-
             } else {
                 Console.WriteLine("Please enter a proper menu item, this item does not exist!");
                 Buy();
