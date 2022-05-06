@@ -56,7 +56,7 @@ namespace Bakery.Tests
     }
 
     [TestMethod]
-    public void BreadDeal_CalculatesNumberOfLoavesByThirdsRoundedDownReturnsDiscountedQuantity_Int()
+    public void BreadDotDeal_CalculatesNumberOfLoavesByThirdsRoundedDownReturnsDiscountedQuantity_Int()
     {
         Dictionary<string, int> fullMenu = new Dictionary<string, int>();
         Bread loaf = new Bread();
@@ -77,7 +77,7 @@ namespace Bakery.Tests
     }
 
     [TestMethod]
-    public void PastryDeal()
+    public void PastryDotDeal_CalculatesNumberOfPastriesByThreesRoundedDownForDiscountCalc_Int()
     {
         Dictionary<string, int> fullMenu = new Dictionary<string, int>();
         Pastry danish = new Pastry();
